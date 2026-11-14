@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+
+<!-- =========================================================
+     SkinGuide - Sign-up page (signup.html)
+     ========================================================= -->
+
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Create a free SkinGuide account.">
+    <meta name="keywords" content="skincare, SkinGuide, sign up">
+    <meta name="author" content="Fatimah and Layan">
+    <title>SkinGuide - Sign Up</title>
+
+    <!-- External CSS -->
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+    <!-- Internal CSS -->
+    <style type="text/css">
+        .form-box h1 {
+            margin-top: 0;
+        }
+        .star {
+            color: #c0392b;
+        }
+    </style>
+
+    <!-- External JavaScript -->
+    <script type="text/javascript" src="script.js"></script>
+</head>
+
+<body>
+
+    <!-- ================= HEADER (same on every page) ================= -->
+    <header class="site-header" id="top">
+        <div class="banner-box">
+            <img src="images/banner.png" width="960" height="240" alt="SkinGuide banner" usemap="#skinMap">
+            <span class="badge">Sign Up</span>
+            <span class="banner-message">Click the logo to learn about us</span>
+            <map name="skinMap">
+                <area shape="circle" coords="110,120,80" href="about.html" alt="About SkinGuide">
+                <area shape="rect" coords="835,28,940,68" href="about.html" alt="About Us">
+                <area shape="rect" coords="215,60,660,155" href="index.html" alt="SkinGuide home">
+            </map>
+        </div>
+
+        <!-- Small banner for phones (shown by CSS on small screens), also an image map -->
+        <div class="banner-small">
+            <img src="images/banner-mobile.png" width="360" height="150" alt="SkinGuide banner" usemap="#smallMap">
+            <map name="smallMap">
+                <area shape="circle" coords="60,75,45" href="about.html" alt="About SkinGuide">
+                <area shape="rect" coords="122,100,214,128" href="about.html" alt="About Us">
+                <area shape="rect" coords="122,35,350,90" href="index.html" alt="SkinGuide home">
+            </map>
+        </div>
+
+        <nav class="menu">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#skin-types">Skin&nbsp;Types&nbsp;&#9662;</a>
+                    <ul class="submenu">
+                        <li><a href="index.html#skin-types">Skin type viewer</a></li>
+                        <li><a href="index.html#skin-table">Skin types table</a></li>
+                    </ul>
+                </li>
+                <li><a href="index.html#products">Products</a></li>
+                <li><a href="about.html">About&nbsp;Us</a></li>
+                <li><a href="login.html">Login</a></li>
+                <li><a href="signup.html" class="active">Sign&nbsp;Up</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <section class="form-box">
+            <h1 class="center">Create Your Account</h1>
+            <p class="center">All fields marked with <span class="star">*</span> are required.</p>
+
+            <form name="signupForm" action="#" method="post"
+                  onsubmit="return validateSignup()" onreset="resetSignup()">
+
+                <div class="form-row">
+                    <label for="fullName">Full name <span class="star">*</span></label>
+                    <input type="text" id="fullName" name="fullName" class="field"
+                           placeholder="e.g. Sara Ahmed" maxlength="50" autofocus>
+                    <span id="fullNameError" class="error"></span>
+                </div>
+
+                <div class="form-row">
+                    <label for="email">E-mail <span class="star">*</span></label>
+                    <!-- type="text": our JavaScript function isValidEmail() checks the e-mail -->
+                    <input type="text" id="email" name="email" class="field"
+                           placeholder="sara@mail.com" maxlength="60">
+                    <span id="emailError" class="error"></span>
+                </div>
+
+                <div class="form-row">
+                    <label for="password">Password <span class="star">*</span></label>
+                    <input type="password" id="password" name="password" class="field"
+                           placeholder="8+ characters with a number" maxlength="30">
+                    <span id="passwordError" class="error"></span>
+                </div>
+
+                <div class="form-row">
+                    <label for="confirmPassword">Confirm password <span class="star">*</span></label>
+                    <input type="password" id="confirmPassword" name="confirmPassword" class="field" maxlength="30">
+                    <span id="confirmPasswordError" class="error"></span>
+                </div>
+
+                <div class="form-row">
+                    <label for="skinType">Skin type <span class="star">*</span></label>
+                    <select id="skinType" name="skinType" class="field">
+                        <option value="">-- select your skin type --</option>
+                        <option value="oily">Oily</option>
+                        <option value="dry">Dry</option>
+                        <option value="combination">Combination</option>
+                        <option value="normal">Normal</option>
+                        <option value="sensitive">Sensitive</option>
+                    </select>
+                    <span id="skinTypeError" class="error"></span>
+                </div>
+
+                <input type="submit" class="btn" value="Create account">
+                <input type="reset" class="btn btn-light" value="Reset">
+            </form>
+
+            <div id="signupMessage" class="message"></div>
+
+            <p class="center">Already have an account? <a href="login.html">Log in</a></p>
+        </section>
+    </div>
+
+    <!-- ================= FOOTER (same on every page) ================= -->
+    <footer class="site-footer">
+        <p>
+            <a href="index.html">Home</a> |
+            <a href="about.html">About Us</a> |
+            <a href="login.html">Login</a> |
+            <a href="signup.html">Sign Up</a>
+        </p>
+        <p>&copy; 2026 SkinGuide. CPIS-358 student project.</p>
+    </footer>
+
+</body>
+</html>

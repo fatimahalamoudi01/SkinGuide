@@ -1,0 +1,485 @@
+/* =========================================================
+   SkinGuide - External Style Sheet (style.css)
+   This file is linked from all 4 pages, so every page
+   has the same design (master page).
+   ========================================================= */
+
+/* ---------- 1. Basic elements ---------- */
+body {
+    margin: 0;
+    font-family: "Trebuchet MS", Verdana, Arial, sans-serif;
+    font-size: 15px;
+    line-height: 1.7;
+    color: #4a3f3a;
+    background-color: #f8f1e9;              /* warm beige */
+}
+
+h1, h2, h3 {
+    font-family: Georgia, "Times New Roman", serif;
+    color: #6b4f4b;
+}
+
+h2 {
+    margin-top: 0;
+    padding-bottom: 8px;
+    border-bottom: 2px solid #f0d4d4;                          /* border */
+    text-shadow: 1px 1px 2px rgba(201, 123, 132, 0.25);       /* text shadow */
+}
+
+a {
+    color: #c97b84;
+    font-weight: bold;
+}
+
+a:hover {
+    color: #7d9a78;                         /* pseudo-class */
+}
+
+/* ---------- 2. Header and banner (master page) ---------- */
+.site-header {
+    background-image: linear-gradient(to right, #fbe4e4, #fffaf4, #dfead9);
+    padding-top: 15px;
+    box-shadow: 0 3px 10px rgba(107, 79, 75, 0.15);           /* box shadow */
+}
+
+/* the box around the banner is the parent of the 3 layers */
+.banner-box {
+    position: relative;
+    width: 960px;
+    height: 240px;
+    margin: 0 auto;
+    border: 3px solid #e8b4b8;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+/* layer 1 (bottom): the banner picture */
+.banner-box img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+/* layer 2: the message on top of the picture */
+.banner-message {
+    position: absolute;
+    bottom: 14px;
+    left: 218px;
+    z-index: 2;
+    padding: 3px 14px;
+    font-size: 13px;
+    color: #6b4f4b;
+    background-color: rgba(255, 255, 255, 0.85);
+    border-radius: 14px;
+}
+
+/* layer 3 (top): the small badge */
+.badge {
+    position: absolute;
+    top: 14px;
+    left: 160px;
+    z-index: 3;
+    padding: 2px 12px;
+    font-size: 12px;
+    font-weight: bold;
+    color: white;
+    background-color: #7d9a78;
+    border: 2px solid white;
+    border-radius: 14px;
+    box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.25);
+}
+
+/* ---------- 3. Navigation menu ---------- */
+.menu {
+    margin-top: 15px;
+    text-align: center;
+    background-color: #fffaf4;
+    border-top: 1px solid #f0dcd6;
+}
+
+.menu ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+.menu li {
+    display: inline;
+    position: relative;
+}
+
+.menu li a {
+    padding: 13px 20px;
+    line-height: 50px;
+    color: #6b4f4b;
+    text-decoration: none;
+}
+
+.menu li a:hover {
+    background-color: #f6d6d6;
+}
+
+/* the page that is open now */
+.menu li a.active {
+    background-color: #c97b84;
+    color: white;
+}
+
+/* drop-down sub menu */
+.menu li ul.submenu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 10;                            /* above the page content */
+    min-width: 180px;
+    text-align: left;
+    background-color: #fffaf4;
+    border: 1px solid #f0dcd6;
+    border-radius: 0 0 12px 12px;
+    box-shadow: 0 8px 16px rgba(107, 79, 75, 0.15);
+}
+
+.menu li:hover ul.submenu {
+    display: block;
+}
+
+.menu li ul.submenu li {
+    display: block;
+}
+
+.menu li ul.submenu li a {
+    display: block;
+    padding: 8px 16px;
+    line-height: normal;
+}
+
+/* ---------- 4. Page content ---------- */
+.container {
+    width: 90%;
+    max-width: 1000px;
+    margin: 30px auto;
+}
+
+/* ---------- 5. General classes (used on many pages) ---------- */
+.card {
+    margin-bottom: 30px;
+    padding: 26px 32px;
+    background-color: #fffaf4;
+    border: 1px solid #f0dcd6;
+    border-radius: 20px;                                   /* rounded corners */
+    box-shadow: 0 4px 14px rgba(107, 79, 75, 0.10);       /* soft shadow */
+}
+
+.center {
+    text-align: center;
+}
+
+.pink-box {
+    padding: 12px 18px;
+    background-color: #fbe4e4;
+    border-left: 5px solid #c97b84;
+    border-radius: 12px;
+}
+
+.green-box {
+    padding: 12px 18px;
+    background-color: #e6f0e2;
+    border-left: 5px solid #7d9a78;
+    border-radius: 12px;
+}
+
+.btn {
+    padding: 9px 22px;
+    font-size: 14px;
+    font-weight: bold;
+    color: white;
+    background-color: #c97b84;
+    border: none;
+    border-radius: 22px;
+    cursor: pointer;
+    box-shadow: 0 3px 6px rgba(201, 123, 132, 0.35);
+}
+
+.btn:hover {
+    background-color: #7d9a78;
+}
+
+.btn-light {
+    color: #6b4f4b;
+    background-color: white;
+    border: 2px solid #e8b4b8;
+    box-shadow: none;
+}
+
+.clear {
+    clear: both;
+}
+
+/* a class used only with <p> */
+p.note {
+    font-size: 13px;
+    font-style: italic;
+    color: #8a7a74;
+}
+
+/* ---------- 6. Table ---------- */
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 2px solid #e8b4b8;
+}
+
+.data-table caption {
+    padding: 8px;
+    font-weight: bold;
+    color: #6b4f4b;
+}
+
+.data-table th {
+    padding: 10px;
+    color: white;
+    background-color: #c97b84;
+    border: 1px solid #e8b4b8;
+}
+
+.data-table td {
+    padding: 9px;
+    text-align: center;
+    background-color: white;
+    border: 1px solid #f0dcd6;
+}
+
+.data-table tfoot td {
+    font-weight: bold;
+    background-color: #e6f0e2;
+}
+
+/* ---------- 7. Skin type viewer ---------- */
+.skin-btn {
+    margin: 3px;
+    padding: 6px 16px;
+    font-size: 14px;
+    color: #6b4f4b;
+    background-color: white;
+    border: 2px solid #e8b4b8;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.viewer-img {
+    max-width: 90%;
+    height: auto;
+    border: 6px solid white;
+    border-radius: 20px;
+    box-shadow: 0 4px 14px rgba(107, 79, 75, 0.20);
+}
+
+/* ---------- 8. Product cards (3 in each row using float) ---------- */
+.product-card {
+    float: left;
+    width: 30%;
+    height: 400px;
+    margin: 0 1.5% 25px 1.5%;
+    text-align: center;
+    background-color: white;
+    border: 1px solid #f0dcd6;
+    border-radius: 20px;
+    box-shadow: 0 4px 12px rgba(107, 79, 75, 0.12);
+    overflow: hidden;
+}
+
+.product-card img {
+    margin-top: 14px;
+    border-radius: 16px;
+}
+
+.product-card h3 {
+    margin: 10px 0 4px 0;
+    font-size: 17px;
+}
+
+.product-card p {
+    margin: 4px 14px;
+    font-size: 13px;
+}
+
+.tag {
+    padding: 2px 10px;
+    font-size: 12px;
+    color: #5d7a58;
+    background-color: #e6f0e2;
+    border-radius: 10px;
+}
+
+.price {
+    font-size: 16px;
+    font-weight: bold;
+    color: #c97b84;
+}
+
+/* ---------- 9. Forms ---------- */
+.form-box {
+    width: 440px;
+    margin: 0 auto;
+    padding: 30px 40px;
+    background-color: #fffaf4;
+    border-top: 6px solid #e8b4b8;
+    border-radius: 20px;
+    box-shadow: 0 6px 18px rgba(107, 79, 75, 0.15);
+}
+
+.form-row {
+    margin-bottom: 16px;
+}
+
+.form-row label {
+    display: block;
+    margin-bottom: 4px;
+    font-weight: bold;
+    color: #6b4f4b;
+}
+
+/* general class for text boxes and select boxes */
+.field {
+    width: 95%;
+    padding: 9px 10px;
+    font-size: 14px;
+    background-color: white;
+    border: 2px solid #f0dcd6;
+    border-radius: 12px;
+}
+
+.field:focus {
+    border-color: #c97b84;
+    outline: none;
+}
+
+.error {
+    display: block;
+    font-size: 13px;
+    color: #c0392b;
+}
+
+.message {
+    display: none;                         /* JavaScript shows it */
+    margin-top: 16px;
+    padding: 10px 14px;
+    border-radius: 12px;
+}
+
+/* ---------- 10. Team (About Us) ---------- */
+.team-card {
+    float: left;
+    width: 44%;
+    margin: 0 3% 20px 3%;
+    text-align: center;
+}
+
+.team-card img {
+    border: 5px solid white;
+    border-radius: 50%;
+    box-shadow: 0 4px 10px rgba(107, 79, 75, 0.25);
+}
+
+.two-columns {
+    column-count: 2;
+    column-gap: 40px;
+    column-rule: 1px solid #e8b4b8;
+}
+
+/* ---------- 11. Footer ---------- */
+.site-footer {
+    margin-top: 30px;
+    padding: 18px;
+    text-align: center;
+    color: #fffaf4;
+    background-color: #6b4f4b;
+    border-top: 5px double #e8b4b8;
+}
+
+.site-footer a {
+    color: #f6d6d6;
+}
+
+/* ---------- 12. Small banner (phones and tablets) ---------- */
+/* hidden on big screens, shown by the media query below */
+.banner-small {
+    display: none;
+    width: 360px;
+    max-width: 100%;
+    margin: 0 auto;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 3px 8px rgba(107, 79, 75, 0.20);
+}
+
+/* the small banner image always keeps its real size (360 x 150).
+   It never shrinks, so the image map coords always match the picture.
+   On screens smaller than 360px the right edge is hidden (overflow: hidden). */
+.banner-small img {
+    width: 360px;
+    height: 150px;
+}
+
+/* ---------- 13. Media types: screens smaller than 1000px ---------- */
+@media screen and (max-width: 1000px) {
+    /* the big 960px banner does not fit, so show the small banner */
+    .banner-box {
+        display: none;
+    }
+    .banner-small {
+        display: block;
+    }
+}
+
+/* ---------- 14. Media types: phones (smaller than 800px) ---------- */
+@media screen and (max-width: 800px) {
+    .container {
+        width: 94%;
+        margin: 20px auto;
+    }
+    .card {
+        padding: 18px 16px;
+    }
+
+    /* smaller menu links that wrap onto two lines */
+    .menu li a {
+        padding: 8px 10px;
+        line-height: 42px;
+        font-size: 14px;
+    }
+    /* hovering does not work well on touch screens, so no drop-down here */
+    .menu li:hover ul.submenu {
+        display: none;
+    }
+
+    .product-card, .team-card {
+        float: none;
+        width: 100%;
+        margin: 0 0 20px 0;
+    }
+    .form-box {
+        width: 85%;
+        padding: 22px 20px;
+    }
+    .two-columns {
+        column-count: 1;
+    }
+    .data-table th, .data-table td {
+        padding: 6px 4px;
+        font-size: 12px;
+    }
+}
+
+/* ---------- 15. Media types: very small phones (smaller than 360px) ---------- */
+@media screen and (max-width: 359px) {
+    .card {
+        padding: 14px 10px;
+    }
+    .data-table th, .data-table td {
+        padding: 4px 2px;
+        font-size: 11px;
+    }
+}

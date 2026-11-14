@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+
+<!-- =========================================================
+     SkinGuide - About Us page (about.html)
+     ========================================================= -->
+
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="About SkinGuide: the idea, the problem, the benefits and the team.">
+    <meta name="keywords" content="skincare, SkinGuide, about us, team">
+    <meta name="author" content="Fatimah and Layan">
+    <title>SkinGuide - About Us</title>
+
+    <!-- External CSS -->
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+    <!-- Internal CSS -->
+    <style type="text/css">
+        .role {
+            min-height: 50px;
+            color: #7d9a78;
+            font-weight: bold;
+        }
+    </style>
+
+    <!-- External JavaScript -->
+    <script type="text/javascript" src="script.js"></script>
+
+    <!-- Embedded JavaScript: show each member's role when the mouse is over the photo -->
+    <script type="text/javascript">
+        var roles = [
+            "Built the Home page and the skin type viewer.",
+            "Built the Login and Sign-up pages and their validation."
+        ];
+
+        function showRole(n) {
+            document.getElementById("role" + n).innerHTML = roles[n];
+        }
+
+        function hideRole(n) {
+            document.getElementById("role" + n).innerHTML = "Move the mouse over the photo";
+        }
+    </script>
+</head>
+
+<body>
+
+    <!-- ================= HEADER (same on every page) ================= -->
+    <header class="site-header" id="top">
+        <div class="banner-box">
+            <img src="images/banner.png" width="960" height="240" alt="SkinGuide banner" usemap="#skinMap">
+            <span class="badge">About Us</span>
+            <span class="banner-message">Click the logo to learn about us</span>
+            <map name="skinMap">
+                <area shape="circle" coords="110,120,80" href="about.html" alt="About SkinGuide">
+                <area shape="rect" coords="835,28,940,68" href="about.html" alt="About Us">
+                <area shape="rect" coords="215,60,660,155" href="index.html" alt="SkinGuide home">
+            </map>
+        </div>
+
+        <!-- Small banner for phones (shown by CSS on small screens), also an image map -->
+        <div class="banner-small">
+            <img src="images/banner-mobile.png" width="360" height="150" alt="SkinGuide banner" usemap="#smallMap">
+            <map name="smallMap">
+                <area shape="circle" coords="60,75,45" href="about.html" alt="About SkinGuide">
+                <area shape="rect" coords="122,100,214,128" href="about.html" alt="About Us">
+                <area shape="rect" coords="122,35,350,90" href="index.html" alt="SkinGuide home">
+            </map>
+        </div>
+
+        <nav class="menu">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#skin-types">Skin&nbsp;Types&nbsp;&#9662;</a>
+                    <ul class="submenu">
+                        <li><a href="index.html#skin-types">Skin type viewer</a></li>
+                        <li><a href="index.html#skin-table">Skin types table</a></li>
+                    </ul>
+                </li>
+                <li><a href="index.html#products">Products</a></li>
+                <li><a href="about.html" class="active">About&nbsp;Us</a></li>
+                <li><a href="login.html">Login</a></li>
+                <li><a href="signup.html">Sign&nbsp;Up</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+
+        <section class="card center">
+            <h1>About SkinGuide</h1>
+            <!-- Internal links -->
+            <p>
+                <a href="#idea">Our idea</a> |
+                <a href="#problem">The problem</a> |
+                <a href="#benefits">Benefits</a> |
+                <a href="#team">Our team</a>
+            </p>
+        </section>
+
+        <section id="idea" class="card">
+            <h2>Our Idea</h2>
+            <div class="two-columns">
+                <p>
+                    SkinGuide started from a question we hear all the time: "Which product should I buy for
+                    my skin?" Shops are full of skincare products, and every advertisement says its product
+                    is the best.
+                </p>
+                <p>
+                    So we built SkinGuide: a simple website that explains the five skin types, shows which
+                    products suit each one and helps you build a small daily routine.
+                </p>
+            </div>
+        </section>
+
+        <section id="problem" class="card">
+            <h2>The Problem We Solve</h2>
+            <ol>
+                <li>Many people do not know their skin type, so they buy products that make their skin worse.</li>
+                <li>Skincare information online is spread over many websites and is often written to sell.</li>
+                <li>People waste money on products they do not need.</li>
+            </ol>
+        </section>
+
+        <section id="benefits" class="card">
+            <h2>Benefits of SkinGuide</h2>
+            <ul>
+                <li><strong>Simple:</strong> every skin type is explained with a picture.</li>
+                <li><strong>Personal:</strong> suggestions for your own skin type.</li>
+                <li><strong>Saves money:</strong> you buy only what your skin needs.</li>
+                <li><strong>Free:</strong> works on any device.</li>
+            </ul>
+        </section>
+
+        <section id="team" class="card">
+            <h2>Our Team</h2>
+
+            <article class="team-card">
+                <img src="images/member1.png" width="140" height="140" alt="Fatimah"
+                     onmouseover="showRole(0)" onmouseout="hideRole(0)">
+                <h3>Fatimah</h3>
+                <p id="role0" class="role">Move the mouse over the photo</p>
+            </article>
+
+            <article class="team-card">
+                <img src="images/member2.png" width="140" height="140" alt="Layan"
+                     onmouseover="showRole(1)" onmouseout="hideRole(1)">
+                <h3>Layan</h3>
+                <p id="role1" class="role">Move the mouse over the photo</p>
+            </article>
+
+            <div class="clear"></div>
+
+            <table class="data-table">
+                <caption>Work distribution</caption>
+                <thead>
+                    <tr>
+                        <th>Part of the website</th>
+                        <th>Fatimah</th>
+                        <th>Layan</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Home page</td>
+                        <td>&#10004;</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Login and Sign-up pages</td>
+                        <td></td>
+                        <td>&#10004;</td>
+                    </tr>
+                    <tr>
+                        <td>About Us page, style.css and script.js</td>
+                        <td colspan="2">Both members</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <p>Contact us: <a href="mailto:hello@skinguide.com">hello@skinguide.com</a></p>
+            <p><a href="#top">&#9650; Back to top</a></p>
+        </section>
+    </div>
+
+    <!-- ================= FOOTER (same on every page) ================= -->
+    <footer class="site-footer">
+        <p>
+            <a href="index.html">Home</a> |
+            <a href="about.html">About Us</a> |
+            <a href="login.html">Login</a> |
+            <a href="signup.html">Sign Up</a>
+        </p>
+        <p>&copy; 2026 SkinGuide. CPIS-358 student project.</p>
+    </footer>
+
+</body>
+</html>

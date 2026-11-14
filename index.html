@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+
+<!-- =========================================================
+     SkinGuide - Home page (index.html)
+     ========================================================= -->
+
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="SkinGuide helps you know your skin type and choose suitable skincare products.">
+    <meta name="keywords" content="skincare, skin type, products, routine">
+    <meta name="author" content="Fatimah and Layan">
+    <title>SkinGuide - Home</title>
+
+    <!-- External CSS -->
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+    <!-- Internal CSS: styles used only on this page -->
+    <style type="text/css">
+        .welcome h1 {
+            margin-top: 0;
+            font-size: 32px;
+        }
+        .contents a {
+            margin: 0 8px;
+        }
+    </style>
+
+    <!-- External JavaScript -->
+    <script type="text/javascript" src="script.js"></script>
+
+</head>
+
+<body onload="drawRoutine()">
+
+    <!-- ================= HEADER (same on every page) ================= -->
+    <header class="site-header" id="top">
+        <div class="banner-box">
+            <!-- Image map: the logo and the "About Us" label link to the About Us page -->
+            <img src="images/banner.png" width="960" height="240" alt="SkinGuide banner" usemap="#skinMap">
+            <span class="badge">Home</span>
+            <span class="banner-message">Click the logo to learn about us</span>
+            <map name="skinMap">
+                <area shape="circle" coords="110,120,80" href="about.html" alt="About SkinGuide">
+                <area shape="rect" coords="835,28,940,68" href="about.html" alt="About Us">
+                <area shape="rect" coords="215,60,660,155" href="index.html" alt="SkinGuide home">
+            </map>
+        </div>
+
+        <!-- Small banner for phones (shown by CSS on small screens), also an image map -->
+        <div class="banner-small">
+            <img src="images/banner-mobile.png" width="360" height="150" alt="SkinGuide banner" usemap="#smallMap">
+            <map name="smallMap">
+                <area shape="circle" coords="60,75,45" href="about.html" alt="About SkinGuide">
+                <area shape="rect" coords="122,100,214,128" href="about.html" alt="About Us">
+                <area shape="rect" coords="122,35,350,90" href="index.html" alt="SkinGuide home">
+            </map>
+        </div>
+
+        <nav class="menu">
+            <ul>
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="index.html#skin-types">Skin&nbsp;Types&nbsp;&#9662;</a>
+                    <ul class="submenu">
+                        <li><a href="index.html#skin-types">Skin type viewer</a></li>
+                        <li><a href="index.html#skin-table">Skin types table</a></li>
+                    </ul>
+                </li>
+                <li><a href="index.html#products">Products</a></li>
+                <li><a href="about.html">About&nbsp;Us</a></li>
+                <li><a href="login.html">Login</a></li>
+                <li><a href="signup.html">Sign&nbsp;Up</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+
+        <!-- Welcome -->
+        <section class="card welcome center">
+            <h1>Welcome to SkinGuide</h1>
+            <p>
+                SkinGuide helps you <strong>know your skin type</strong> and choose the skincare products
+                that really suit you, so you stop wasting money on products that do not work for your skin.
+            </p>
+            <!-- Internal links (links within this page) -->
+            <p class="contents">
+                <a href="#benefits">Benefits</a> |
+                <a href="#skin-types">Skin types</a> |
+                <a href="#skin-table">Table</a> |
+                <a href="#products">Products</a> |
+                <a href="#routine">My routine</a>
+            </p>
+        </section>
+
+        <!-- Benefits (lists) -->
+        <section id="benefits" class="card">
+            <h2>Why Use SkinGuide?</h2>
+            <article>
+                <ul>
+                    <li>Learn the five skin types in simple words.</li>
+                    <li>See suggestions made for your skin:
+                        <ul>
+                            <li>which products to use</li>
+                            <li>which products to avoid</li>
+                        </ul>
+                    </li>
+                    <li>Save money by buying only what your skin needs.</li>
+                    <li>Free and easy to use.</li>
+                </ul>
+            </article>
+            <article class="green-box">
+                <h3>A basic daily routine</h3>
+                <ol>
+                    <li>Cleanse your face</li>
+                    <li>Use a toner or serum</li>
+                    <li>Moisturize</li>
+                    <li>Apply sunscreen in the morning</li>
+                </ol>
+            </article>
+        </section>
+
+        <!-- Skin types: dynamic picture & text -->
+        <section id="skin-types" class="card center">
+            <h2>Know Your Skin Type</h2>
+            <p>Select your skin type to see what it looks like and our suggestion for it.</p>
+            <p>
+                <button class="skin-btn" id="skinBtn0" onclick="showSkinType(0)">Oily</button>
+                <button class="skin-btn" id="skinBtn1" onclick="showSkinType(1)">Dry</button>
+                <button class="skin-btn" id="skinBtn2" onclick="showSkinType(2)">Combination</button>
+                <button class="skin-btn" id="skinBtn3" onclick="showSkinType(3)">Normal</button>
+                <button class="skin-btn" id="skinBtn4" onclick="showSkinType(4)">Sensitive</button>
+            </p>
+            <img id="skinPicture" class="viewer-img" src="images/skin-normal.png" width="400" height="260" alt="Skin type">
+            <h3 id="skinTitle">Choose a skin type</h3>
+            <p id="skinText">Click one of the buttons above.</p>
+            <p id="skinTip" style="color: #c97b84; font-weight: bold;"></p>
+        </section>
+
+        <!-- Table -->
+        <section id="skin-table" class="card">
+            <h2>Skin Types at a Glance</h2>
+            <table class="data-table">
+                <caption>The five skin types</caption>
+                <thead>
+                    <tr>
+                        <th rowspan="2">Skin type</th>
+                        <th colspan="2">Signs</th>
+                        <th rowspan="2">Helpful ingredients</th>
+                    </tr>
+                    <tr>
+                        <th>How it looks</th>
+                        <th>How it feels</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Oily</td>
+                        <td>Shiny, large pores</td>
+                        <td>Greasy by midday</td>
+                        <td rowspan="2">Niacinamide, salicylic acid</td>
+                    </tr>
+                    <tr>
+                        <td>Combination</td>
+                        <td>Shiny forehead and nose</td>
+                        <td>Dry cheeks</td>
+                    </tr>
+                    <tr>
+                        <td>Normal</td>
+                        <td>Even, small pores</td>
+                        <td>Comfortable</td>
+                        <td>Vitamin C</td>
+                    </tr>
+                    <tr>
+                        <td>Dry</td>
+                        <td>Dull, flaky areas</td>
+                        <td>Tight after washing</td>
+                        <td rowspan="2">Ceramides, hyaluronic acid</td>
+                    </tr>
+                    <tr>
+                        <td>Sensitive</td>
+                        <td>Red areas</td>
+                        <td>Itchy or burning</td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="4">Every skin type needs sunscreen every day.</td>
+                    </tr>
+                </tfoot>
+            </table>
+        </section>
+
+        <!-- Featured products -->
+        <section id="products" class="card">
+            <h2>Featured Products</h2>
+
+            <article class="product-card">
+                <img src="images/product-cleanser.png" width="200" height="200" alt="Gentle Foam Cleanser">
+                <h3>Gentle Foam Cleanser</h3>
+                <p><span class="tag">Oily</span> <span class="tag">Combination</span></p>
+                <p>Removes extra oil without drying the skin.</p>
+                <p class="price">45 SAR</p>
+                <button class="btn" onclick="addToRoutine(0)">Add to routine</button>
+            </article>
+
+            <article class="product-card">
+                <img src="images/product-serum.png" width="200" height="200" alt="Hydrating Serum">
+                <h3>Hydrating Serum</h3>
+                <p><span class="tag">Dry</span> <span class="tag">Normal</span></p>
+                <p>Gives the skin water with hyaluronic acid.</p>
+                <p class="price">89 SAR</p>
+                <button class="btn" onclick="addToRoutine(1)">Add to routine</button>
+            </article>
+
+            <article class="product-card">
+                <img src="images/product-moisturizer.png" width="200" height="200" alt="Soothing Cream">
+                <h3>Soothing Cream</h3>
+                <p><span class="tag">Sensitive</span> <span class="tag">Dry</span></p>
+                <p>Calms red skin. Fragrance-free.</p>
+                <p class="price">65 SAR</p>
+                <button class="btn" onclick="addToRoutine(2)">Add to routine</button>
+            </article>
+
+            <article class="product-card">
+                <img src="images/product-sunscreen.png" width="200" height="200" alt="Daily Sunscreen SPF 50">
+                <h3>Daily Sunscreen SPF 50</h3>
+                <p><span class="tag">All skin types</span></p>
+                <p>Light sunscreen for every day.</p>
+                <p class="price">70 SAR</p>
+                <button class="btn" onclick="addToRoutine(3)">Add to routine</button>
+            </article>
+
+            <article class="product-card">
+                <img src="images/product-toner.png" width="200" height="200" alt="Balancing Toner">
+                <h3>Balancing Toner</h3>
+                <p><span class="tag">Combination</span> <span class="tag">Normal</span></p>
+                <p>Balances oily and dry areas.</p>
+                <p class="price">55 SAR</p>
+                <button class="btn" onclick="addToRoutine(4)">Add to routine</button>
+            </article>
+
+            <article class="product-card">
+                <img src="images/product-mask.png" width="200" height="200" alt="Purifying Clay Mask">
+                <h3>Purifying Clay Mask</h3>
+                <p><span class="tag">Oily</span> <span class="tag">Combination</span></p>
+                <p>Cleans the pores once a week.</p>
+                <p class="price">60 SAR</p>
+                <button class="btn" onclick="addToRoutine(5)">Add to routine</button>
+            </article>
+
+            <div class="clear"></div>
+            <p class="note">Products and prices are examples for this student project.</p>
+        </section>
+
+        <!-- Dynamic elements: my routine -->
+        <section id="routine" class="card">
+            <h2>My Routine (<span id="routineCount">0</span> products)</h2>
+            <ol id="routineList"></ol>
+            <button class="btn btn-light" onclick="removeLastProduct()">Remove last product</button>
+            <p><a href="#top">&#9650; Back to top</a></p>
+        </section>
+    </div>
+
+    <!-- ================= FOOTER (same on every page) ================= -->
+    <footer class="site-footer">
+        <p>
+            <a href="index.html">Home</a> |
+            <a href="about.html">About Us</a> |
+            <a href="login.html">Login</a> |
+            <a href="signup.html">Sign Up</a>
+        </p>
+        <p>&copy; 2026 SkinGuide. CPIS-358 student project.</p>
+    </footer>
+
+</body>
+</html>
